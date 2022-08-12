@@ -9,4 +9,23 @@ var mysql = require('mysql2');
 // OR
 // user: 'root', password: 'some_password_you_created_at_install'
 
+// console.log('im in');
+const dbConnection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root', // change this
+  database: 'chat' // does your database exist?
+});
 
+dbConnection.connect();
+
+module.exports = {dbConnection};
+
+// const tablename = 'Messages'; // TODO: fill this out
+// dbConnection.query(`SELECT * FROM ${tablename}`,function(err, results, fields) {
+//   console.log(results,'this is are results'); // results contains rows returned by server
+//   //console.log(fields); // fields contains extra meta data about results, if available
+// });
+// .then(()=> {
+//   console.log('im done');
+//   dbConnection.end();
+// });
